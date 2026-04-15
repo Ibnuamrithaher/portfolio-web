@@ -1,6 +1,6 @@
 // app/page.tsx
-import { projects, ProjectData } from '@/data/projects';
-import ProjectCard from '@/components/ProjectCard';
+import { projects, ProjectData } from '../data/projects';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home() {
   return (
