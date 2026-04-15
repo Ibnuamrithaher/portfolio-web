@@ -1,27 +1,30 @@
+// data/projects.ts
 
-export const projects = [
+// 1. Ini adalah Interface untuk menyelesaikan Error Parameter 'p' (Error ke-3)
+export interface ProjectData {
+  id: number;
+  title: string;
+  role?: string; // Tanda tanya berarti opsional
+  background: string;
+  techStack: string[];
+  image?: string;
+}
+
+// 2. Ini adalah data proyek Anda
+export const projects: ProjectData[] = [
   {
-    title: "Game Top-Up & Premium Subscription",
-    description: "Ekosistem transaksi digital untuk top-up game dan langganan premium dengan integrasi payment gateway real-time.",
-    tech: ["NestJS", "Vue.js", "PostgreSQL", "Google OAuth"],
-    image: "/project-topup.png", // Ganti dengan path gambar Anda
+    id: 1,
+    title: "Game Top-Up & Premium Subscription Service",
+    role: "Backend Developer",
+    background: "A comprehensive digital marketplace and transaction ecosystem developed to facilitate seamless top-ups for a diverse catalog of mobile games and premium entertainment subscriptions.",
+    techStack: ["Vue.js", "Nest.js", "PostgreSQL", "Tokopay", "Uniplay", "CekatAI"],
   },
   {
+    id: 2,
     title: "Dropshipedia",
-    description: "Platform B2B yang menghubungkan produsen dengan pemasar untuk meningkatkan peluang bisnis UMKM.",
-    tech: ["Laravel", "React.js", "Node.js", "JNE API"],
-    image: "/project-dropship.png",
+    role: "Leader Tim Web Developer",
+    background: "A dedicated platform and ecosystem developed specifically for small and medium-sized enterprises (SMEs) to foster their business growth.",
+    techStack: ["Laravel", "React.js", "Node.js", "MariaDB", "Bootstrap 5"],
   },
-  {
-    title: "Museum Profile & AR",
-    description: "Profil digital imersif untuk koleksi sejarah museum dengan integrasi aplikasi Augmented Reality.",
-    tech: ["React.js", "Tailwind CSS", "Vite"],
-    image: "/project-museum.png",
-  },
-  {
-    title: "Survive in the Crossfire",
-    description: "Game combat multiplayer FFA di platform Roblox dengan arsitektur client-server yang tangguh.",
-    tech: ["Luau", "Roblox DataStore", "3D Modeling"],
-    image: "/project-roblox.png",
-  }
+  // Anda bisa tambahkan proyek lainnya (Museum Profile, POS, dll) di sini nanti
 ];

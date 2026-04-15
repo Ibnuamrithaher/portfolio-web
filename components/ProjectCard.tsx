@@ -1,20 +1,20 @@
-export default function ProjectCard({ project }: { project: any }) {
+// components/ProjectCard.tsx
+import { ProjectData } from '@/data/projects';
+
+// Kita beri tahu TypeScript bahwa komponen ini menerima props 'project' dengan tipe ProjectData
+export default function ProjectCard({ project }: { project: ProjectData }) {
   return (
-    <div className="group overflow-hidden rounded-xl border border-slate-200 bg-white transition-all hover:shadow-lg">
-      <div className="aspect-video w-full bg-slate-100 p-4 flex items-center justify-center">
-         {/* Placeholder jika gambar belum ada */}
-         <span className="text-slate-400 font-medium">{project.title} Preview</span>
-      </div>
-      <div className="p-6">
-        <h3 className="mb-2 text-xl font-bold text-slate-900">{project.title}</h3>
-        <p className="mb-4 text-sm text-slate-600 leading-relaxed">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((t: string) => (
-            <span key={t} className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
-              {t}
-            </span>
-          ))}
-        </div>
+    <div className="border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow bg-white">
+      <h3 className="text-xl font-bold text-gray-800 mb-2">{project.title}</h3>
+      {project.role && <p className="text-sm text-blue-600 font-semibold mb-3">{project.role}</p>}
+      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{project.background}</p>
+      
+      <div className="flex flex-wrap gap-2">
+        {project.techStack.map((tech, index) => (
+          <span key={index} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md">
+            {tech}
+          </span>
+        ))}
       </div>
     </div>
   );
