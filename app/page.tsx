@@ -1,65 +1,85 @@
-import Image from "next/image";
+import { projects } from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      {/* Hero Section */}
+      <section className="bg-white px-6 py-20 lg:px-24">
+        <div className="max-w-4xl">
+          <h1 className="mb-4 text-5xl font-extrabold tracking-tight lg:text-6xl">
+            Ibnu Amri Thaher, <span className="text-blue-600">M.Sc.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mb-8 text-xl text-slate-600 leading-relaxed">
+            Full Stack Engineer & Team Leader dengan keahlian dalam membangun arsitektur web yang terukur, 
+            sistem transaksi otomatis, dan manajemen proyek berbasis Agile/Scrum.
           </p>
+          <div className="flex gap-4">
+            <a href="mailto:ibnuamrithaher@gmail.com" className="rounded-lg bg-blue-600 px-6 py-3 font-bold text-white transition-colors hover:bg-blue-700">
+              Hubungi Saya
+            </a>
+            <a href="#projects" className="rounded-lg border border-slate-300 px-6 py-3 font-bold text-slate-700 transition-all hover:bg-slate-50">
+              Lihat Proyek
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Skills Section */}
+      <section className="px-6 py-16 lg:px-24 bg-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="mb-12 text-3xl font-bold">Keahlian Teknis & Manajemen</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+              <h4 className="font-bold mb-3 text-blue-600">Backend</h4>
+              <ul className="text-sm space-y-2 text-slate-600">
+                <li>Nest.js & Express.js</li>
+                <li>Laravel</li>
+                <li>PostgreSQL & MongoDB</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-blue-600">Frontend</h4>
+              <ul className="text-sm space-y-2 text-slate-600">
+                <li>React.js & Next.js</li>
+                <li>Vue.js (Nuxt 3)</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-blue-600">DevOps & AI</h4>
+              <li>Docker & CI/CD</li>
+              <li>VPS Management</li>
+              <li>Python (Model Tuning)</li>
+            </div>
+            <div>
+              <h4 className="font-bold mb-3 text-blue-600">Management</h4>
+              <ul className="text-sm space-y-2 text-slate-600">
+                <li>Agile & Scrum</li>
+                <li>Team Leadership</li>
+                <li>Task Management</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section id="projects" className="px-6 py-20 lg:px-24">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="mb-12 text-3xl font-bold">Portofolio Pilihan</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projects.map((p) => (
+              <ProjectCard key={p.title} project={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-white py-12 px-6 text-center">
+        <p className="text-slate-500">© 2026 Ibnu Amri Thaher. Built with Next.js & Tailwind CSS.</p>
+      </footer>
+    </main>
   );
 }
