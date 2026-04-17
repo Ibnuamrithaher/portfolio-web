@@ -1,0 +1,70 @@
+{
+  "navbar": {
+    "home": "Beranda",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "contact": "Kontak",
+    "name": "IBNU AMRI THAHER",
+    "degree": "S.Kom., M.Cs."
+  },
+  "hero": {
+    "badge": "Tersedia untuk peluang strategis",
+    "title": "Membawa produk digital dari gagasan hingga peluncuran.",
+    "desc": "Saya menggabungkan rekayasa perangkat lunak dengan ketajaman manajerial melalui kerangka kerja Agile & Scrum untuk tim yang terukur dan efisien."
+  },
+  "skills": {
+    "title": "Keahlian & Teknologi",
+    "cats": {
+      "languages": "Bahasa Pemrograman",
+      "frameworks": "Kerangka Kerja",
+      "devops": "DevOps & AI",
+      "tools": "Alat Data"
+    }
+  },
+  "certs": {
+    "title": "Lisensi & Sertifikasi",
+    "view_proof": "Tampilkan Bukti / Kredensial",
+    "no_file": "Berkas Disertakan Terpisah",
+    "cats": {
+      "it": "Kompetensi & Teknologi Informasi",
+      "academic": "Akademik & Ujian Profesional",
+      "org": "Magang, Kejuaraan, & Organisasi"
+    }
+  },
+  "experience": {
+    "title": "Pengalaman Kerja & Kepemimpinan",
+    "tenure": "Masa Organisasi"
+  },
+  "expertise": {
+    "title": "Kompetensi Inti",
+    "pm_title": "Project Management",
+    "pm_desc": "Implementasi metodologi Agile/Scrum untuk mengelola SDLC secara end-to-end, memastikan efisiensi tim dan ketepatan rilis produk digital.",
+    "fs_title": "Fullstack Architecture",
+    "fs_desc": "Membangun ekosistem web yang andal dengan Nest.js, PostgreSQL, dan React. Fokus pada skalabilitas backend dan integrasi sistem yang aman.",
+    "ai_title": "AI Integration",
+    "ai_desc": "Pengalaman dalam tuning model Machine Learning dan integrasi AI untuk otomatisasi proses bisnis serta optimasi keamanan sistem."
+  },
+  "projects_sec": {
+    "title": "Proyek Pilihan.",
+    "desc": "Daftar eksekusi teknis dan manajerial pada platform skala besar.",
+    "swipe": "Geser",
+    "back": "KEMBALI KE BERANDA",
+    "background": "Latar Belakang Proyek",
+    "role": "Peran & Tanggung Jawab",
+    "achievements": "Pencapaian Kunci & Dampak",
+    "stack": "Teknologi yang Digunakan",
+    "live": "Lihat Sistem Live",
+    "public": "Repositori Publik",
+    "private": "Akses Privat (Internal)",
+    "next_project": "Proyek Selanjutnya",
+    "prev_project": "Proyek Sebelumnya"
+  },
+  "cta": {
+    "title": "Siap berkolaborasi untuk proyek strategis Anda berikutnya?",
+    "desc": "Saya saat ini tersedia untuk peran manajerial atau pengembangan senior di lingkungan yang dinamis.",
+    "button": "HUBUNGI SAYA SEKARANG"
+  },
+  "footer": {
+    "rights": "Hak Cipta Dilindungi."
+  }
+}

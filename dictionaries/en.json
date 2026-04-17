@@ -1,0 +1,70 @@
+{
+  "navbar": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "name": "IBNU AMRI THAHER",
+    "degree": "B.Sc., M.Cs."
+  },
+  "hero": {
+    "badge": "Available for strategic opportunities",
+    "title": "Bringing digital products from idea to launch.",
+    "desc": "I combine software engineering with managerial acumen through Agile & Scrum frameworks for scalable and efficient teams."
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "cats": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "devops": "DevOps & AI",
+      "tools": "Data Tools"
+    }
+  },
+  "certs": {
+    "title": "Licenses & Certifications",
+    "view_proof": "View Proof / Credential",
+    "no_file": "File Attached Separately",
+    "cats": {
+      "it": "IT Competence & Technology",
+      "academic": "Academic & Professional Exams",
+      "org": "Internships, Awards, & Organizations"
+    }
+  },
+  "experience": {
+    "title": "Work Experience & Leadership",
+    "tenure": "Organizational Tenure"
+  },
+  "expertise": {
+    "title": "Core Competencies",
+    "pm_title": "Project Management",
+    "pm_desc": "Implementation of Agile/Scrum methodologies to manage SDLC end-to-end, ensuring team efficiency and precise digital product releases.",
+    "fs_title": "Fullstack Architecture",
+    "fs_desc": "Building reliable web ecosystems with Nest.js, PostgreSQL, and React. Focus on backend scalability and secure system integration.",
+    "ai_title": "AI Integration",
+    "ai_desc": "Experience in tuning Machine Learning models and AI integration for business process automation and system security optimization."
+  },
+  "projects_sec": {
+    "title": "Selected Projects.",
+    "desc": "List of technical and managerial executions on large-scale platforms.",
+    "swipe": "Swipe",
+    "back": "BACK TO HOME",
+    "background": "Project Background",
+    "role": "Role & Responsibilities",
+    "achievements": "Key Achievements & Impact",
+    "stack": "Tech Stack",
+    "live": "View Live System",
+    "public": "Public Repo",
+    "private": "Private Access (Internal)",
+    "next_project": "Next Project",
+    "prev_project": "Previous Project"
+  },
+  "cta": {
+    "title": "Ready to collaborate on your next strategic project?",
+    "desc": "I am currently available for managerial or senior development roles in dynamic environments.",
+    "button": "CONTACT ME NOW"
+  },
+  "footer": {
+    "rights": "All Rights Reserved."
+  }
+}

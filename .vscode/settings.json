@@ -1,0 +1,14 @@
+{
+    "vscord.app.name": "Antigravity",
+    "vscord.status.details.text.editing": "Editing {file_name}{file_extension}",
+    "vscord.status.state.text.editing": "Project: Secret",
+    "vscord.status.details.text.idle": "Idle",
+    "vscord.status.image.large.editing.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{app_id}.png",
+    "vscord.status.image.large.editing.text": "{app_name}",
+    "vscord.status.image.small.editing.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{lang}.png",
+    "vscord.status.image.small.editing.text": "Editing a {LANG} file",
+    "vscord.status.image.large.idle.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{app_id}.png",
+    "vscord.status.image.large.idle.text": "{app_name}",
+    "vscord.status.image.small.idle.key": "https://raw.githubusercontent.com/LeonardSSH/vscord/main/assets/icons/{app_id}.png",
+    "vscord.status.image.small.idle.text": "{app_name}"
+}

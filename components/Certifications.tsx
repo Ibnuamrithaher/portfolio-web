@@ -2,21 +2,35 @@
 
 import { useRef } from 'react';
 import AnimateIn from './AnimateIn';
+import { certifications as certData } from '../data/profile';
 
-interface CertData {
-  title: string;
-  issuer: string;
+interface CertItem {
+  title: { id: string; en: string };
+  issuer: { id: string; en: string };
   year: string;
   icon: string;
   link: string;
 }
 
-function CertSlider({ certifications }: { certifications: CertData[] }) {
+interface CertProps {
+  lang: 'id' | 'en';
+  dict: {
+    title: string;
+    view_proof: string;
+    no_file: string;
+    cats: {
+      it: string;
+      academic: string;
+      org: string;
+    }
+  };
+}
+
+function CertSlider({ certifications, viewProof, noFile, lang }: { certifications: CertItem[], viewProof: string, noFile: string, lang: 'id' | 'en' }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Chunk data: 3 items per view on desktop
   const chunkSize = 3;
-  const chunks: CertData[][] = [];
+  const chunks: CertItem[][] = [];
   for (let i = 0; i < certifications.length; i += chunkSize) {
     chunks.push(certifications.slice(i, i + chunkSize));
   }
@@ -41,7 +55,7 @@ function CertSlider({ certifications }: { certifications: CertData[] }) {
         <button 
           onClick={scrollLeft}
           className="absolute hidden md:flex md:-left-5 lg:-left-12 xl:-left-16 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 rounded-full p-2.5 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300 items-center justify-center hover:scale-105"
-          aria-label="Geser ke kiri"
+          aria-label="Previous"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
         </button>
@@ -65,19 +79,23 @@ function CertSlider({ certifications }: { certifications: CertData[] }) {
                       {cert.year}
                     </span>
                   </div>
-                  <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{cert.title}</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{cert.issuer}</p>
+                  <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    {cert.title[lang]}
+                  </h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                    {cert.issuer[lang]}
+                  </p>
                 </div>
                 
                 <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800/50">
                   {cert.link !== "#" ? (
                     <a href={cert.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline hover:text-emerald-700 transition-colors">
-                      Tampilkan Bukti / Kredensial
+                      {viewProof}
                       <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </a>
                   ) : (
                     <span className="inline-flex items-center text-xs font-bold text-slate-400 dark:text-slate-600 cursor-not-allowed">
-                      Berkas Disertakan Terpisah
+                      {noFile}
                     </span>
                   )}
                 </div>
@@ -91,7 +109,7 @@ function CertSlider({ certifications }: { certifications: CertData[] }) {
         <button 
           onClick={scrollRight}
           className="absolute hidden md:flex md:-right-5 lg:-right-12 xl:-right-16 top-1/2 -translate-y-1/2 z-10 bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 rounded-full p-2.5 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-300 items-center justify-center hover:scale-105"
-          aria-label="Geser ke kanan"
+          aria-label="Next"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
         </button>
@@ -100,41 +118,19 @@ function CertSlider({ certifications }: { certifications: CertData[] }) {
   );
 }
 
-export default function Certifications() {
+export default function Certifications({ dict, lang }: CertProps) {
   const categories = [
     {
-      name: "💻 Kompetensi & Teknologi Informasi",
-      certs: [
-        { title: "Cloud Practitioner Essentials (AWS)", issuer: "AWS / Dicoding", year: "Kompetensi", icon: "☁️", link: "/sertifikat/Sertivikat Kelulusan Kelas Cloud Practitioner Essentials (Belajar Dasar AWS Cloud).pdf" },
-        { title: "Sertifikat Web Server Hardening", issuer: "DTS Kominfo / Lembaga Pelatihan", year: "Kompetensi", icon: "🛡️", link: "/sertifikat/Ibnu Amri T_Sertifikat Web Server Hardening (1).pdf" },
-        { title: "Membuat Aplikasi Android Pemula", issuer: "Dicoding Indonesia", year: "Kelulusan", icon: "📱", link: "/sertifikat/Sertivikat Belajar Membuat Aplikasi Android Untuk Pemula Dari Dicoding.pdf" },
-        { title: "Front-End Web Pemula (Landing Page)", issuer: "Dicoding Indonesia", year: "Kelulusan", icon: "🖥️", link: "/sertifikat/CERTIFICATE_LANDING_PAGE_ARXR82TJ2MZY.jpeg (1772×928).jpg" },
-        { title: "Digital Marketing", issuer: "Lembaga Pelatihan", year: "Pelatihan", icon: "📈", link: "/sertifikat/Sertivikat Digital Marketing.pdf" },
-        { title: "Programming PHP", issuer: "Progate / Sololearn", year: "Kelulusan", icon: "🐘", link: "/sertifikat/PHP.pdf" },
-        { title: "Programming JavaScript", issuer: "Progate / Sololearn", year: "Kelulusan", icon: "🟨", link: "/sertifikat/JavaScript.pdf" },
-        { title: "HTML & CSS", issuer: "Progate / Sololearn", year: "Kelulusan", icon: "🌐", link: "/sertifikat/HTML & CSS.pdf" },
-        { title: "Command Line Fundamentals", issuer: "Platform Course", year: "Kelulusan", icon: "⌨️", link: "/sertifikat/Comand Line.pdf" },
-      ]
+      name: "💻 " + dict.cats.it,
+      certs: certData.it
     },
     {
-      name: "🏛️ Akademik & Ujian Profesional",
-      certs: [
-        { title: "TOEFL ITP", issuer: "Pusat Bahasa", year: "Sertifikasi", icon: "🌎", link: "/sertifikat/TOFEL ITP.pdf" },
-        { title: "TPA BAPPENAS", issuer: "Bappenas RI", year: "Sertifikasi", icon: "🧠", link: "/sertifikat/TPA BAPPENAS.pdf" },
-        { title: "Asisten Praktikum", issuer: "Universitas Mulawarman", year: "Akademik", icon: "👨‍🏫", link: "/sertifikat/Asisten Praktikum.jpg" },
-        { title: "Penghargaan Fakultas Teknik", issuer: "Universitas Mulawarman", year: "Penghargaan", icon: "🥇", link: "/sertifikat/sertiv_penghargaan_teknik.pdf" },
-      ]
+      name: "🏛️ " + dict.cats.academic,
+      certs: certData.academic
     },
     {
-      name: "🎯 Magang, Kejuaraan, & Organisasi",
-      certs: [
-        { title: "Magang MSIB (Back End Developer)", issuer: "PT Telkomsel", year: "Magang", icon: "🏢", link: "/sertifikat/Magang Kampus Merdeka Back End Developer PT Telkomsel.pdf" },
-        { title: "Sertifikat GEMASTIK", issuer: "Puspresnas / Kemdikbud", year: "Nasional", icon: "🏆", link: "/sertifikat/E-Sertifikat Gemastik-Ibnu Amri T.pdf" },
-        { title: "Staff Biro Riset & Pengembangan", issuer: "BEM KM Unmul", year: "Organisasi", icon: "📋", link: "/sertifikat/Sertivikat Staff Biro Riset dan Pengembangan BEM KM Unmul.pdf" },
-        { title: "Pengurus KAMMI", issuer: "KAMMI", year: "Organisasi", icon: "🤝", link: "/sertifikat/KAMII.png" },
-        { title: "Peserta Fighter Camp UKM PSHT", issuer: "UKM PSHT Unmul", year: "Bela Diri", icon: "🥋", link: "/sertifikat/Peserta Fighter Camph UKM PSHT Unmul.pdf" },
-        { title: "Seminar: Melatih Mental Juara", issuer: "Kepanitiaan Daring", year: "Webinar", icon: "🎙️", link: "/sertifikat/Partisipasi Seminar Daring dengan tema Melatih Mental Juara Di Masa Pandemi.jpeg" },
-      ]
+      name: "🎯 " + dict.cats.org,
+      certs: certData.org
     }
   ];
 
@@ -143,7 +139,7 @@ export default function Certifications() {
       <div className="max-w-6xl mx-auto">
         <AnimateIn direction="up">
           <h2 className="text-3xl font-black text-center text-slate-900 dark:text-white mb-16 tracking-tighter underline decoration-emerald-500 underline-offset-8">
-            Licenses & Certifications
+            {dict.title}
           </h2>
         </AnimateIn>
 
@@ -154,11 +150,15 @@ export default function Certifications() {
                 {cat.name}
               </h3>
             </AnimateIn>
-            <CertSlider certifications={cat.certs} />
+            <CertSlider 
+              certifications={cat.certs} 
+              viewProof={dict.view_proof} 
+              noFile={dict.no_file} 
+              lang={lang}
+            />
           </div>
         ))}
       </div>
     </section>
   );
 }
-

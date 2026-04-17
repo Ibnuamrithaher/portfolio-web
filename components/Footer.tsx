@@ -1,4 +1,10 @@
-export default function Footer() {
+interface FooterProps {
+  dict: {
+    rights: string;
+  };
+}
+
+export default function Footer({ dict }: FooterProps) {
   return (
     <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-12 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
@@ -14,7 +20,7 @@ export default function Footer() {
         </div>
 
         <p className="text-[10px] text-slate-300 dark:text-slate-600 uppercase tracking-widest">
-          © 2026 Developed with Next.js & Tailwind
+          © 2026 {dict.rights}
         </p>
       </div>
     </footer>

@@ -37,13 +37,13 @@ export default function ImageSlider({ images, title }: { images: string[], title
         className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] scroll-smooth"
       >
         {images.map((src, index) => (
-          <div key={index} className="w-full flex-none snap-center relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex items-center justify-center">
+          <div key={index} className="w-full flex-none snap-center relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-sm flex items-center justify-center aspect-[16/9] md:aspect-[16/8]">
             <Image 
               src={src} 
               alt={`${title} screenshot ${index + 1}`}
               width={1200}
               height={600}
-              className="object-cover w-full h-[300px] md:h-[500px] lg:h-[600px] transition-transform duration-500 hover:scale-105"
+              className="object-contain w-full h-full transition-transform duration-500 hover:scale-[1.02] [image-rendering:high-quality]"
             />
           </div>
         ))}

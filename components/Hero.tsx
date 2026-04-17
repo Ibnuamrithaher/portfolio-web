@@ -2,7 +2,15 @@
 
 import { motion } from 'framer-motion';
 
-export default function Hero() {
+interface HeroProps {
+  dict: {
+    badge: string;
+    title: string;
+    desc: string;
+  };
+}
+
+export default function Hero({ dict }: HeroProps) {
   return (
     <section id="beranda" className="relative min-h-screen flex items-center justify-center bg-white dark:bg-[#0B1120] text-slate-900 dark:text-white font-sans overflow-hidden transition-colors duration-300">
 
@@ -53,7 +61,7 @@ export default function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-xs font-bold text-slate-600 dark:text-slate-300 tracking-wider uppercase">
-              Open for PM & Engineering Roles
+              {dict.badge}
             </span>
           </div>
         </motion.div>
@@ -90,9 +98,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           className="text-lg text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Membawa produk digital dari gagasan hingga peluncuran.
-          Saya menggabungkan rekayasa perangkat lunak dengan ketajaman manajerial
-          melalui kerangka kerja <strong className="text-slate-800 dark:text-slate-200 font-bold">Agile & Scrum</strong> untuk tim yang terukur dan efisien.
+          {dict.title} <br />
+          {dict.desc}
         </motion.p>
 
         {/* Tombol - Solid, Elegan, Minimalis */}
@@ -103,10 +110,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="/CV_Ibnu_Amri_Thaher.pdf"
+            href="#projek"
             className="px-8 py-3.5 w-full sm:w-auto rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/20 hover:-translate-y-1"
           >
-            Lihat Portofolio
+            {dict.badge.includes('strategic') ? 'View Portfolio' : 'Lihat Portofolio'}
           </a>
           <a
             href="/CV_Ibnu_Amri_Thaher.pdf"
@@ -114,10 +121,10 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="px-8 py-3.5 w-full sm:w-auto rounded-lg bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 font-bold text-sm tracking-wide transition-all hover:bg-slate-50 dark:hover:bg-slate-800"
           >
-            Unduh CV
+            {dict.badge.includes('strategic') ? 'Download CV' : 'Unduh CV'}
           </a>
         </motion.div>
       </div>
     </section>
   );
-}
+}
